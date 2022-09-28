@@ -1,0 +1,55 @@
+<div class="container">
+ <ng-template #errors>
+   <div class="text-bg-danger">{{errorMessage}}</div>
+ </ng-template>
+  <div class="card" *ngIf="products;else errors">
+
+    <div class="card-header"> Products List</div>
+    <div class="card-body">
+      <form [formGroup]="searchFormGroup" (ngSubmit)="handlerSearchProducts()">
+        <div class="input-group">
+          <label class="input-group-text">Mot clé:</label>
+          <input type="text" class="form-control" formControlName="keyword">
+          <button class="btn btn-info">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th> <th>Name</th> <th>Price</th> <th>Code promo</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>
+              <i *ngIf="p.code_promo==true" class="bi bi-check-square text-success"></i>
+            </td>
+            <td>
+              <button (click)="handlerSetCodePromo(p)" [ngClass]="p.code_promo==true?'btn-danger':'btn-success'"  class="btn">
+                <span *ngIf="p.code_promo==true" >code promo off</span>
+                <span *ngIf="p.code_promo==false" >code promo on</span>
+              </button>
+            </td>
+            <td>
+              <button (click)="deleteProduct(p)" class="btn btn-danger">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+
+</div>
