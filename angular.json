@@ -31,9 +31,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "/home/nacer/Bureau/Projet_Angular/ui_admin/node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "/home/nacer/Bureau/Projet_Angular/ui_admin/node_modules/bootstrap-icons/font/bootstrap-icons.scss"
+
             ],
-            "scripts": []
+            "scripts": [
+              "/home/nacer/Bureau/Projet_Angular/ui_admin/node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ]
           },
           "configurations": {
             "production": {
